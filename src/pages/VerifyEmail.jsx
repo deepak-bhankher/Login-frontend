@@ -1,42 +1,26 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 
 function VerifyEmail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const verify = async () => {
-      const params = new URLSearchParams(window.location.search);
-      const token = params.get("token");
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
 
-      try {
-        const res = await fetch(
-          "https://login-766w.onrender.com/api/auth/verify-email?token=" + token
-        );
+    console.log("TOKEN MILA:", token); // 🔥 DEBUG
 
-        const data = await res.json();
-
-        if (data.token) {
-          // ✅ AUTO LOGIN
-          localStorage.setItem("token", data.token);
-
-          // ✅ redirect
-          navigate("/dashboard");
-        } else {
-          alert("Verification failed");
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    verify();
-  }, []);
+    if (token) {
+      localStorage.setItem("token", token);
+      navigate("/dashboard");
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h2>⏳ Verifying your email...</h2>
+    <div className="min-h-screen flex justify-center items-center">
+      <h2 className="text-xl font-bold">Verifying... ⏳</h2>
     </div>
   );
 }
