@@ -7,7 +7,7 @@ import Orders from "./pages/Orders";
 import Navbar from "./components/Navbar";
 import React from "react";
 import LogOut from "./pages/LogOut";
-import VerifyEmail from "./pages/VerifyEmail";
+import VerifyEmail from "./pages/verifyEmail";
 
 function App() {
   return (
