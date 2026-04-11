@@ -22,7 +22,7 @@ function LogOut() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="backdrop-blur-xl bg-white/10 border border-white/20 
-  p-10 rounded-3xl shadow-2xl text-center text-white w-[400px]"
+p-6 sm:p-10 rounded-3xl shadow-2xl text-center text-white w-[90%] sm:w-[400px]"
       >
         <div className="border p-8 rounded-2xl shadow-2xl text-center">
           <h1 className="text-3xl font-bold ">

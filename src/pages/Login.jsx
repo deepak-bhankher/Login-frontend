@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { motion } from "framer-motion";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,7 +13,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const registerUser = async () => {
     if (!email || !password) {
       setMsg("Please fill all fields");
@@ -24,7 +26,7 @@ function Login() {
       setSuccessMsg("");
 
       await axios.post(
-        "https://login-766w.onrender.com/api/auth/register",
+        "http://localhost:5000/api/auth/register",
         { email, password }
       );
 
@@ -42,7 +44,7 @@ function Login() {
       setMsg("");
 
       const res = await axios.post(
-        "https://login-766w.onrender.com/api/auth/login",
+        "http://localhost:5000/api/auth/login",
         { email, password }
       );
 
@@ -56,45 +58,78 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-500 to-purple-600">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-80 text-center">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="min-h-screen mx-auto flex justify-center items-center bg-gradient-to-br from-teal-900 via-slate-800 to-blue-950">
+      
+      <motion.div
+        initial={{ opacity: 0, y: -80 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        
+        <div className="max-w-md w-[90%] mx-auto p-4 sm:p-6 border-2 border-white/20 mt-10 sm:mt-20 mb-2 backdrop-blur-lg bg-white/15 shadow-2xl rounded-lg">
+          
+          <h2
+            className="text-center text-white font-bold text-2xl sm:text-3xl"
+            style={{ fontFamily: "DynaPuff" }}
+          >
+            Login
+          </h2>
 
-        <input
-          className="w-full p-2 border rounded mb-3"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <div className="space-y-6 mt-10">
+            
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              className="px-4 w-full py-3 rounded-lg border border-white/30 bg-white/20 text-white"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-        <input
-          className="w-full p-2 border rounded mb-3"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              className="px-4 w-full py-3 rounded-lg border border-white/30 bg-white/20 text-white"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-        <button
-          onClick={registerUser}
-          className="w-full bg-blue-500 text-white p-2 rounded mb-2 hover:bg-blue-600"
-        >
-          {loading ? "Sending..." : "Register"}
-        </button>
+            {msg && (
+              <p className="text-white/70 font-bold text-xl text-center">
+                {msg}
+              </p>
+            )}
 
-        <button
-          onClick={loginUser}
-          className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
-        >
-          Login
-        </button>
+            {successMsg && (
+              <p className="text-green-400 text-center">{successMsg}</p>
+            )}
 
-        <p className="text-red-500 mt-2">{msg}</p>
-        <p className="text-green-600 mt-2">{successMsg}</p>
-      </div>
+            {/* REGISTER */}
+            <button
+              onClick={registerUser}
+              disabled={loading}
+              className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 duration-500 transition-all cursor-pointer text-white font-semibold"
+            >
+              {loading ? "Sending..." : "Register"}
+            </button>
+
+            {/* LOGIN */}
+            <button
+              onClick={loginUser}
+              disabled={loading}
+              className="w-full py-3 rounded-xl bg-gray-800 duration-500 transition-all cursor-pointer text-white font-semibold hover:bg-black"
+            >
+              Login
+            </button>
+
+          </div>
+        </div>
+
+      </motion.div>
     </div>
   );
 }
 
 export default Login;
+
+
+

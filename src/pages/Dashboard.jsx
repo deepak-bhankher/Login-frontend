@@ -14,11 +14,11 @@ bg-gradient-to-br from-teal-900 via-slate-800 to-blue-900"
   animate={{ opacity: 1, scale: 1 }}
   transition={{ duration: 0.6 }}
   className="backdrop-blur-xl bg-white/10 border border-white/20 
-  shadow-[0_0_40px_rgba(0,0,0,0.4)] rounded-3xl 
-  text-center p-12 text-white w-[450px]"
+shadow-[0_0_40px_rgba(0,0,0,0.4)] rounded-3xl 
+text-center p-6 sm:p-12 text-white w-[90%] sm:w-[450px]"
 >
   <h1
-    className="text-4xl font-extrabold mb-4 tracking-wide"
+    className="text-2xl sm:text-4xl font-extrabold mb-4 tracking-wide"
     style={{ fontFamily: "DynaPuff" }}
   >
     Welcome Deep 

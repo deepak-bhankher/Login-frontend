@@ -11,7 +11,7 @@ function Navbar() {
 
 "
     >
-      <div className="w-full text-white font-semibold px-6 py-4 flex gap-10">
+      <div className="w-full text-white font-semibold px-6 py-4 flex flex-wrap gap-6 sm:gap-10 justify-center sm:justify-start">
         <Link to="/dashboard" className="hover:scale-105 duration-300">
           HOME
         </Link>

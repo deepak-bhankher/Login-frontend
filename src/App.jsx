@@ -60,15 +60,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/verify-email"
-          element={
-            <ProtectedRoute>
-              <Navbar/>
-              <VerifyEmail />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/verify-email" element={<VerifyEmail />} />
       </Routes>
     </BrowserRouter>
   );

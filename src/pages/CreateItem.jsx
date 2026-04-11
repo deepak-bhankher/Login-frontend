@@ -47,7 +47,7 @@ function CreateItem() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="backdrop-blur-lg  bg-white/20 border border-white/30 max-w-md mx-auto p-6  rounded-lg shadow-2xl"
+        className="backdrop-blur-lg bg-white/20 border border-white/30 w-[90%] sm:max-w-md mx-auto p-4 sm:p-6 rounded-lg shadow-2xl"
       >
         <h2
           className="text-xl font-mono mb-4 text-center"
@@ -55,7 +55,7 @@ function CreateItem() {
         >
           Create Item{" "}
         </h2>
-        <div className="space-y-10">
+        <div className="space-y-6 sm:space-y-10">
           <input
             type="text"
             placeholder="Name"
@@ -103,7 +103,7 @@ placeholder-white"
           <div className="flex justify-center">
             <img
               src={URL.createObjectURL(image)}
-              className="w-32 h-32  object-cover rounded mt-3"
+              className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded mt-3"
             />
           </div>
         )}
