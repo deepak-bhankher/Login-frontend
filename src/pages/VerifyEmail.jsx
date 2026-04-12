@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import React from "react";
+import api from "../api/api";
 
 function VerifyEmail() {
   const navigate = useNavigate();
@@ -12,11 +12,11 @@ function VerifyEmail() {
 
     if (token) {
       // 🔥 backend ko call kar
-      axios
-        .get(`https://login-766w.onrender.com/api/auth/verify-email?token=${token}`)
+      api
+        .get(`/auth/verify-email?token=${token}`)
         .then((res) => {
           // 🔥 backend se jo JWT aayega use save kar
-          localStorage.setItem("token", res.data.token);
+          localStorage  .setItem("token", res.data.token);
 
           // 🔥 auto login → dashboard
           navigate("/dashboard");

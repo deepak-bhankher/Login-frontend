@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/api"
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { motion } from "framer-motion";
@@ -25,8 +25,8 @@ function Login() {
       setMsg("");
       setSuccessMsg("");
 
-      await axios.post(
-        "http://localhost:5000/api/auth/register",
+      await api.post(
+        "/auth/register",
         { email, password }
       );
 
@@ -43,8 +43,8 @@ function Login() {
       setLoading(true);
       setMsg("");
 
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+      const res = await api.post(
+        "/auth/login",
         { email, password }
       );
 

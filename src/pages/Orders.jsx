@@ -99,7 +99,7 @@ function Orders() {
               className="backdrop-blur-xl text-white border border-white/20 rounded-xl p-4 shadow hover:shadow-lg transition"
             >
               <img
-                src={`http://127.0.0.1:5000${item.image}`}
+                src={`https://login-backend-1-a5vl.onrender.com${item.image}`}
                 className="h-44 w-full object-cover mb-2 rounded-2xl hover:scale-105 duration-300"
               />
 
